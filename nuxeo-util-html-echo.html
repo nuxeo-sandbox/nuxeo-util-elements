@@ -1,0 +1,83 @@
+<!--
+@license
+(C) Copyright 2016 Nuxeo SA (http://nuxeo.com/) and others.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Contributors:
+  Joshua Fletcher <jfletcher@nuxeo.com>
+-->
+<!--
+An element for injecting HTML in Polymer DOM helper elements (e.g.
+"dom-if", "dom-repeat"). By default Polymer templates always escape
+HTML to prevent XSS attacks.
+
+See: https://github.com/Polymer/TemplateBinding/issues/57
+
+Example:
+
+    <nuxeo-util-html-echo html-to-inject="{{myHTMLString}}"
+    </nuxeo-util-html-echo>
+
+Note: you don't need this if using hard-coded HTML within the template,
+only when using bound values.
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--nuxeo-util-html-echo` | Mixin applied to the element | `{}`
+
+@group Nuxeo Labs Elements
+@element nuxeo-util-html-echo
+@demo demo/echo.html
+-->
+<dom-module id="nuxeo-util-html-echo">
+
+  <template>
+
+    <style include="paper-material">
+      :host {
+        @apply(--nuxeo-util-html-echo);
+      }
+
+    </style>
+
+    <span id="htmlEchoContent"></span>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'nuxeo-util-html-echo',
+
+      properties: {
+        htmlToInject: {
+          type: String
+        }
+      },
+
+      observers: [
+        '_htmlChanged(htmlToInject)'
+      ],
+
+      _htmlChanged: function() {
+        this.$.htmlEchoContent.innerHTML = this.htmlToInject;
+      }
+    });
+
+  </script>
+
+</dom-module>
