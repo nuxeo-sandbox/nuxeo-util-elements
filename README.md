@@ -1,18 +1,10 @@
-# About nuxeo-util
+# About nuxeo-util-elements
 
 Helpful elements for working with Polymer.
 
 ## Elements
 
-### nuxeo-util-html-echo
-
-An element An element for injecting HTML in Polymer DOM helper elements (e.g. "dom-if", "dom-repeat"). By default Polymer templates always escape HTML.
-
-
-## nuxeo-util-mimetypes
-
-A Polymer element for dealing with MIME types. Returns file extensions or "friendly" file types given a MIME type.
-
+[API and Docs](http://nuxeo-sandbox.github.io/nuxeo-util-elements/)
 
 ## Dependencies
 
