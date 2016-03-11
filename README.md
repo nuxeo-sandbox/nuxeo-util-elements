@@ -29,7 +29,16 @@ And you can run it via:
 
     polyserve -p 3000
 
-Once running, you can view the elements' documentation at `http://localhost:3000/components/nuxeo-util/`, where `nuxeo-util` is the name of the directory containing the elements.
+Once running, you can view the elements' documentation at `http://localhost:3000/components/nuxeo-util-elements/`.
+
+
+## Support
+
+**These features are not part of the Nuxeo Production platform.**
+
+These solutions are provided for inspiration and we encourage customers to use them as code samples and learning resources.
+
+This is a moving project (no API maintenance, no deprecation process, etc.) If any of these solutions are found to be useful for the Nuxeo Platform in general, they will be integrated directly into platform, not maintained here.
 
 
 ## Reporting Issues
