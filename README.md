@@ -6,6 +6,9 @@ Helpful elements for working with Polymer.
 
 [API and Docs](http://nuxeo-sandbox.github.io/nuxeo-util-elements/)
 
+The script `publish-docs.sh` can be used to republish the documentation (and it's a reminder for me about how to do it!)
+
+
 ## Dependencies
 
 Install Node.js (I use [Homebrew](http://brew.sh/))
