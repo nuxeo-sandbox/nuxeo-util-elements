@@ -1,6 +1,6 @@
 # About nuxeo-util-elements
 
-Helpful elements for working with Polymer.
+Helpful Web components for working with Polymer. Note that these components are not nuxeo-specific.
 
 ## Elements
 
