@@ -22,16 +22,20 @@ An element to compute percentages that add up to 100 using the largest remainder
 
 See: https://en.wikipedia.org/wiki/Largest_remainder_method
 
-Example:
+Example 1:
+
+    <nuxeo-util-largest-remainder values-to-fix="[33.3, 33.3, 33.3]"
+                                  fixed-values="{{fixedValues}}">
+    </nuxeo-util-largest-remainder>
+
+Example 2:
 
     var largestRemainder = document.createElement('nuxeo-util-largest-remainder');
-    largestRemainder.valuesToFix = [13,88];
+    largestRemainder.valuesToFix = [11,88];
     var fixedValues = largestRemainder.computePercentages();
 
-Note: I was unable to get this working properly when binding `values-to-fix` to an array. In particular if the array elements were modified (i.e. with `this.push()`) nuxeo-util-largest-remainder was never notified. It only works if you replace the entire array object.
-
 @group Nuxeo Labs Elements
-@element nuxeo-util-html-echo
+@element nuxeo-util-largest-remainder
 @demo demo/largest-remainder.html
 -->
 <dom-module id="nuxeo-util-largest-remainder">
@@ -88,7 +92,7 @@ Note: I was unable to get this working properly when binding `values-to-fix` to 
           this.fixedValues = flooredValues;
 
           return this.fixedValues;
-          
+
         } else {
           return null;
         }
