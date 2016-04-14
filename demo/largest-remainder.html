@@ -21,15 +21,18 @@ Contributors:
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport"
+    content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
   <title>nuxeo-util-html-echo Demo</title>
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-  <link rel="import" href="../../polymer/polymer.html">
+  <link rel="import"
+    href="../../polymer/polymer.html">
 
-  <link rel="import" href="../nuxeo-util-largest-remainder.html">
+  <link rel="import"
+    href="../nuxeo-util-largest-remainder.html">
 
   <style>
     code {
@@ -42,18 +45,20 @@ Contributors:
 
 </head>
 
-<body unresolved class="fullbleed">
+<body unresolved
+  class="fullbleed">
 
   <template is="dom-bind">
 
-    <nuxeo-util-largest-remainder fixed-values="{{fixedValues}}"></nuxeo-util-largest-remainder>
-    <p><code>[33.3,33.3,33.3]</code> = <code>[[[fixedValues]]]</code></p>
+    <nuxeo-util-largest-remainder values-to-fix="[33.3, 33.3, 33.3]"
+      fixed-values="{{fixedValues1}}"></nuxeo-util-largest-remainder>
+    <p>This example would result in a total of 99 with simple rounding:</p>
+    <p><code>[33.3,33.3,33.3]</code> = <code>[[[fixedValues1]]]</code></p>
 
-    <script>
-      var utilLargestRemainder = document.querySelector('nuxeo-util-largest-remainder');
-      utilLargestRemainder.valuesToFix = [33.3, 33.3, 33.3];
-
-    </script>
+    <nuxeo-util-largest-remainder values-to-fix="[13.626332, 47.989636, 9.596008, 28.788024]"
+      fixed-values="{{fixedValues2}}"></nuxeo-util-largest-remainder>
+    <p>This example would result in a total of 101 with simple rounding:</p>
+    <p><code>[13.626332, 47.989636, 9.596008, 28.788024]</code> = <code>[[[fixedValues2]]]</code></p>
 
   </template>
 
