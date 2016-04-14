@@ -1,0 +1,105 @@
+<!--
+@license
+(C) Copyright 2016 Nuxeo SA (http://nuxeo.com/) and others.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Contributors:
+  Joshua Fletcher <jfletcher@nuxeo.com>
+-->
+<!-- This is just the list of mime types, file extensions, and friendly names.
+I put it in a separate file to keep things cleaner.
+-->
+<script src="mime-type-data.js"></script>
+
+<!--
+A polymer element for converting MIME Types into file extensions or friendly names.
+
+Example:
+
+    <nuxeo-util-mimetypes mime-type="application/vnd.google-apps.spreadsheet"
+                          friendly="true"
+                          data={{gSheetFriendly}}>
+    </nuxeo-util-mimetypes>
+
+@group Nuxeo Labs Elements
+@element nuxeo-util-mimetypes
+@demo demo/mimetypes.html
+-->
+<script>
+  Polymer({
+
+    is: 'nuxeo-util-mimetypes',
+
+    properties: {
+
+      /**
+       * Set this to the mime-type value.
+       */
+      mimeType: {
+        type: String,
+        observer: 'query'
+      },
+
+      /**
+       * Set to `true` if you want the friendly name, `false` if you want the extension.
+       */
+      friendly: {
+        type: String,
+        observer: 'query'
+      },
+
+      /**
+       * Extension or friendly name is returned here.
+       */
+      data: {
+        type: String,
+        notify: true
+      }
+    },
+
+    /**
+     * Fetch the requested value. 
+     */
+    query: function() {
+      var mimeTypeObject;
+
+      if (this.mimeType) {
+        mimeTypeObject = this._getMimeTypeObject(this.mimeType);
+        if (this.friendly) {
+          this.data = mimeTypeObject.friendlyName;
+
+        } else {
+          this.data = mimeTypeObject.fileExtensions;
+        }
+        return this.data;
+      }
+    },
+
+
+    /**
+     * Given {mimeType}, locate the corresponding JSON object.
+     */
+    _getMimeTypeObject: function(mimeType) {
+      for (var i = 0; i < mimeTypeData.mimeTypeDataArray.length; i++) {
+        if (mimeTypeData.mimeTypeDataArray[i].mimeType === mimeType) {
+          return mimeTypeData.mimeTypeDataArray[i];
+        }
+      }
+      // Not found.
+      return null;
+    },
+
+  });
+
+</script>

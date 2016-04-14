@@ -1,0 +1,34 @@
+{
+  "name": "nuxeo-util-elements",
+  "authors": [
+    "Josh Fletcher <jfletcher@nuxeo.com>"
+  ],
+  "description": "Helpful Polymer Elements",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "nuxeo"
+  ],
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "homepage": "https://github.com/nuxeo-sandbox/nuxeo-util-elements/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.4"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.4"
+  },
+  "_release": "43f126b56c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "43f126b56cf9a1b0b00d402dbe784cc1696f7563"
+  },
+  "_source": "git://github.com/nuxeo-sandbox/nuxeo-util-elements.git",
+  "_target": "master",
+  "_originalSource": "nuxeo-sandbox/nuxeo-util-elements",
+  "_direct": true
+}
